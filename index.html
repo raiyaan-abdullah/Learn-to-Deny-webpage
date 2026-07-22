@@ -27,7 +27,7 @@
   <header class="hero paper-hero">
     <div class="hero-body">
       <div class="container is-max-desktop has-text-centered">
-        <p class="eyebrow">ECCV 2026</p>
+        <img class="conference-logo" src="static/images/ECCV_2026_Logo.svg" alt="ECCV 2026">
         <h1 class="title publication-title">Learning to Deny</h1>
         <p class="subtitle publication-subtitle" style="margin-top:20px;">Action Denial in Multimodal Large Language Models</p>
 
@@ -120,9 +120,11 @@
           <p>Evaluating 20 state-of-the-art MLLMs reveals a consistent failure: models that exceed 85% accuracy on the positive action classes collapse below 50% on its action-denial counterpart, indicating a strong inclination to affirm plausible actions rather than verify that they truly occur. This exposes a critical blind spot in modern video understanding: the inability to reason causally about whether a motion actually happens. To probe this issue, we explore a causal graph formulation, <strong>CausalAct</strong>, which expresses scene structure through natural-language prompts linking context, interaction, and motion. Incorporating such causal cues substantially reduces false positives, demonstrating that denial is a learnable reasoning skill. UCF101-AD provides a new lens for diagnosing and improving causal reasoning in multimodal models.</p>
         </div>
         <div class="stat-strip" aria-label="Dataset and evaluation highlights">
-          <div><strong>11,283</strong><span>videos</span></div>
+          <div><strong>3,549</strong><span>action-denial test clips</span></div>
+          <div><strong>675</strong><span>action-presence clips</span></div>
           <div><strong>20</strong><span>MLLMs evaluated</span></div>
-          <div><strong><50%</strong><span>denial accuracy</span></div>
+          <div><strong>&lt;50%</strong><span>denial accuracy</span></div>
+          <div><strong>7,059</strong><span>auxiliary fine-tuning action-denial clips</span></div>
         </div>
       </div>
     </section>

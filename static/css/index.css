@@ -108,6 +108,13 @@ a {
   z-index: 1;
 }
 
+.conference-logo {
+  display: block;
+  height: auto;
+  margin: 0 auto 1.4rem;
+  width: clamp(120px, 12vw, 150px);
+}
+
 .publication-title {
   font-size: clamp(3.6rem, 10vw, 7.5rem) !important;
   font-weight: 800;
@@ -235,6 +242,13 @@ a {
   display: block;
   height: auto;
   width: 100%;
+}
+
+@media (min-width: 901px) {
+  .video-frame {
+    margin: auto;
+    max-width: 340px;
+  }
 }
 
 .video-label {
@@ -414,6 +428,11 @@ a {
   padding: 1rem 0.4rem 0.3rem;
 }
 
+.paper-section .container > p + .paper-figure,
+.performance-section .container > p + .paper-figure {
+  margin-top: 1.5rem;
+}
+
 .abstract-section {
   background: var(--cream);
   border-bottom: 1px solid #e8e0cd;
@@ -428,16 +447,6 @@ a {
   margin: 2.5rem auto 0;
 }
 
-.abstract-copy p:first-child::first-letter {
-  color: var(--coral-dark);
-  float: left;
-  font-family: "Manrope", sans-serif;
-  font-size: 4.2rem;
-  font-weight: 800;
-  line-height: 0.84;
-  padding: 0.35rem 0.55rem 0 0;
-}
-
 .abstract-copy p + p {
   margin-top: 1.4rem;
 }
@@ -445,7 +454,7 @@ a {
 .stat-strip {
   border-top: 1px solid #d9cfb8;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   margin-top: 3.2rem;
   padding-top: 2rem;
 }
@@ -747,9 +756,14 @@ a {
     row-gap: 1.5rem;
   }
 
-  .stat-strip div:nth-child(2) {
+  .stat-strip div:nth-child(even) {
     border-right: 0;
   }
+
+  .stat-strip div:last-child {
+    grid-column: 1 / -1;
+  }
+
 }
 
 @media (max-width: 560px) {
@@ -801,8 +815,7 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .stat-strip div,
-  .stat-strip div:nth-child(2) {
+  .stat-strip div {
     border-bottom: 1px solid #d9cfb8;
     border-right: 0;
     padding: 1rem;
@@ -810,6 +823,7 @@ a {
 
   .stat-strip div:last-child {
     border-bottom: 0;
+    grid-column: auto;
   }
 
   .bibtex-header {
