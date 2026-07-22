@@ -111,8 +111,9 @@ a {
 .conference-logo {
   display: block;
   height: auto;
-  margin: 0 auto 1.4rem;
-  width: clamp(120px, 12vw, 150px);
+  margin: 0 auto 0.4rem;
+  max-width: 100%;
+  width: 300px;
 }
 
 .publication-title {
@@ -769,6 +770,10 @@ a {
 @media (max-width: 560px) {
   body {
     font-size: 16px;
+  }
+
+  .conference-logo {
+    width: 100%;
   }
 
   .section {
