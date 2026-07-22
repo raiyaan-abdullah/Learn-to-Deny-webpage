@@ -29,7 +29,7 @@
       <div class="container is-max-desktop has-text-centered">
         <p class="eyebrow">ECCV 2026</p>
         <h1 class="title publication-title">Learning to Deny</h1>
-        <p class="subtitle publication-subtitle">Action Denial in Multimodal Large Language Models</p>
+        <p class="subtitle publication-subtitle" style="margin-top:20px;">Action Denial in Multimodal Large Language Models</p>
 
         <div class="publication-authors" aria-label="Authors">
           <a href="https://raiyaan.xyz/" target="_blank" rel="noopener noreferrer">Raiyaan Abdullah</a>
@@ -64,11 +64,6 @@
   <main>
     <section class="section quiz-section" id="challenge">
       <div class="container is-widescreen">
-        <div class="section-heading has-text-centered">
-          <p class="eyebrow">Try it yourself</p>
-          <h2 class="title is-2">Can you deny the obvious answer?</h2>
-          <p class="section-lead">One clip. Eleven choices. Look past the setting and verify the motion.</p>
-        </div>
 
         <div class="quiz-card">
           <div class="quiz-media">
@@ -80,7 +75,6 @@
 
           <div class="quiz-content">
             <div id="quiz-question">
-              <p class="quiz-kicker">What is actually happening?</p>
               <h3>In the video, a person is performing an action. Select the caption that most accurately describes it.</h3>
               <div class="quiz-options" role="group" aria-label="Video caption choices">
                 <button class="quiz-option" type="button" data-correct="true"><span>01</span>None of the choices accurately describes this video.</button>
@@ -101,7 +95,7 @@
               <span class="result-icon" aria-hidden="true"></span>
               <p class="result-label"></p>
               <h3 class="result-message"></h3>
-              <p class="result-explanation">The familiar face, tool, and setting invite an “Apply Eye Makeup” prediction—but the defining action never occurs. That gap between plausible context and verified motion is action denial.</p>
+              <p class="result-explanation">The familiar face, tool, and setting invite an “Apply Eye Makeup” prediction, but the defining action never occurs. That gap between plausible context and verified motion is action denial.</p>
             </div>
           </div>
         </div>
@@ -110,36 +104,25 @@
 
     <section class="section paper-section" id="evaluation-setups">
       <div class="container is-max-widescreen">
-        <div class="two-column-copy">
-          <div>
-            <p class="eyebrow">A benchmark built to expose shortcuts</p>
-            <h2 class="title is-2">Four views of the same denial problem</h2>
-          </div>
-          <div class="copy-block">
-            <p>UCF101-AD tests denial under progressively different formulations. The <strong>Standard MCQ</strong> pairs “None” with the tempting target action and unrelated distractors. <strong>Explicit Denial</strong> spells out that contextual cues can be present while the action is absent. <strong>Primary Distractor Removed</strong> takes away the most seductive wrong answer, while the <strong>Binary</strong> setup asks a direct yes-or-no question.</p>
-            <p>Together, these variants separate action recognition from a model’s tendency to affirm a plausible premise. The bold response is correct; the underlined response is the primary contextual distractor.</p>
-          </div>
-        </div>
+        <p>UCF101-AD tests denial under progressively different formulations. The <strong>Standard MCQ</strong> pairs “None” with the tempting target action and unrelated distractors. <strong>Explicit Denial</strong> spells out that contextual cues can be present while the action is absent. <strong>Primary Distractor Removed</strong> takes away the most seductive wrong answer, while the <strong>Binary</strong> setup asks a direct yes-or-no question.</p>
+        <p>Together, these variants separate action recognition from a model’s tendency to affirm a plausible premise. The bold response is correct; the underlined response is the primary contextual distractor.</p>
         <figure class="paper-figure figure-wide">
           <img src="static/images/examples_setups.png" alt="Evaluation variants for a Not Playing Piano action-denial example">
-          <figcaption><strong>Evaluation and analytical variants.</strong> The task becomes easier as the prompt or candidate set removes ambiguity—but real-world systems cannot depend on those hints.</figcaption>
         </figure>
       </div>
     </section>
 
     <section class="section abstract-section" id="abstract">
       <div class="container is-max-desktop">
-        <p class="eyebrow has-text-centered">Abstract</p>
-        <h2 class="title is-2 has-text-centered">Recognizing an action is not the same as verifying it</h2>
+        <h2 class="title is-2 has-text-centered">Abstract</h2>
         <div class="abstract-copy">
           <p>Multimodal large language models (MLLMs) have rapidly advanced video understanding, achieving strong zero-shot and few-shot recognition across standard benchmarks. Yet their ability to <strong>deny</strong> an action by recognizing when an activity is <strong>not</strong> happening despite strong contextual cues remains largely unexplored. We introduce <strong>UCF101-AD</strong>, a large-scale benchmark consisting of paired <em>Action-Presence</em> and <em>Action-Denial</em> clips, designed to evaluate this capacity for denial. Each negative video in UCF101-AD preserves the same contextual and motion cues (persons, objects, locations) as its positive counterpart, but the defining action itself is explicitly absent.</p>
           <p>Evaluating 20 state-of-the-art MLLMs reveals a consistent failure: models that exceed 85% accuracy on the positive action classes collapse below 50% on its action-denial counterpart, indicating a strong inclination to affirm plausible actions rather than verify that they truly occur. This exposes a critical blind spot in modern video understanding: the inability to reason causally about whether a motion actually happens. To probe this issue, we explore a causal graph formulation, <strong>CausalAct</strong>, which expresses scene structure through natural-language prompts linking context, interaction, and motion. Incorporating such causal cues substantially reduces false positives, demonstrating that denial is a learnable reasoning skill. UCF101-AD provides a new lens for diagnosing and improving causal reasoning in multimodal models.</p>
         </div>
         <div class="stat-strip" aria-label="Dataset and evaluation highlights">
           <div><strong>11,283</strong><span>videos</span></div>
-          <div><strong>101</strong><span>action pairs</span></div>
           <div><strong>20</strong><span>MLLMs evaluated</span></div>
-          <div><strong>86.6%</strong><span>human denial accuracy</span></div>
+          <div><strong><50%</strong><span>denial accuracy</span></div>
         </div>
       </div>
     </section>
@@ -164,8 +147,7 @@
     <section class="section results-section" id="results">
       <div class="container is-max-widescreen">
         <div class="section-heading has-text-centered">
-          <p class="eyebrow">Benchmark results</p>
-          <h2 class="title is-2">Twenty MLLMs, one consistent failure</h2>
+          <h2 class="title is-2">Benchmark results</h2>
           <p class="section-lead">Zero-shot accuracy (%) on UCF101-AD. Type 1 contains context without defining motion; Type 2 contains similar context with a different plausible motion.</p>
         </div>
 
@@ -218,7 +200,6 @@
     <section class="section paper-section" id="progressive-hinting">
       <div class="container is-max-widescreen">
         <div class="section-heading has-text-centered">
-          <p class="eyebrow">Why do models fail?</p>
           <h2 class="title is-2">Remove the temptation, and denial gets easier</h2>
           <p class="section-lead">Accuracy rises from the Standard MCQ to Explicit Denial, then rises again when the primary action distractor disappears.</p>
         </div>
@@ -270,19 +251,11 @@
 
     <section class="section performance-section" id="causalact-results">
       <div class="container is-max-widescreen">
-        <div class="two-column-copy performance-heading">
-          <div>
-            <p class="eyebrow">Causal reasoning helps</p>
-            <h2 class="title is-2">Prompting reveals the path. Fine-tuning teaches models to follow it.</h2>
-          </div>
-          <div class="copy-block">
-            <p>For larger models, zero-shot <strong>CausalAct-0</strong> improves Ovis2.5-9B and Qwen2.5-VL-7B, whose language backbones can use the structured prompt. VideoLLaMA3-7B degrades slightly, showing that prompting alone is not universally sufficient.</p>
-            <p>For 2B–3B models, auxiliary graph fine-tuning produces the decisive gains: Ovis2.5-2B rises from 27.0% to 52.3%, Qwen2.5-VL-3B from 19.8% to 40.7%, and VideoLLaMA3-2B from 25.4% to 43.3% Overall-AD. The model learns to verify the causal chain before asserting an action.</p>
-          </div>
-        </div>
+        <p>For larger models, zero-shot <strong>CausalAct-0</strong> improves Ovis2.5-9B and Qwen2.5-VL-7B, whose language backbones can use the structured prompt. VideoLLaMA3-7B degrades slightly, showing that prompting alone is not universally sufficient.</p>
+        <p>For 2B–3B models, auxiliary graph fine-tuning produces the decisive gains: Ovis2.5-2B rises from 27.0% to 52.3%, Qwen2.5-VL-3B from 19.8% to 40.7%, and VideoLLaMA3-2B from 25.4% to 43.3% Overall-AD. The model learns to verify the causal chain before asserting an action.</p>
         <figure class="paper-figure figure-wide performance-figure">
           <img src="static/images/model_performance_chart_horizontal.png" alt="Bar charts comparing baseline, CausalAct-0, and CausalAct accuracy">
-          <figcaption><strong>Baseline vs. CausalAct-0 vs. CausalAct.</strong> Structured prompting helps capable reasoners; graph-based auxiliary fine-tuning makes the causal representation usable by smaller MLLMs.</figcaption>
+          <figcaption><strong>Baseline vs. CausalAct-0 vs. CausalAct.</strong> Structured causal prompting helps capable reasoners; graph-based auxiliary fine-tuning makes the causal representation usable by smaller MLLMs.</figcaption>
         </figure>
       </div>
     </section>
