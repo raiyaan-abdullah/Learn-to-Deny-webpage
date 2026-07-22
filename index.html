@@ -1,294 +1,320 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="A new benchmark showing that today's best MLLMs are great at saying 'yes, that action is happening' but collapse when asked to recognize it is not. And how to steer them better using a causal reasoniong framework..">
-  <meta property="og:title" content="Learning to Deny: Action Denial in Multimodal Large Language Models"/>
-  <meta property="og:description" content="A new benchmark showing that today's best MLLMs are great at saying 'yes, that action is happening' but collapse when asked to recognize it is not. And how to steer them better using a causal reasoniong framework..">
-  <meta property="og:url" content="URL OF THE WEBSITE"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/your_banner_image.png" />
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
-
-
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learning to Deny introduces UCF101-AD, a benchmark for action denial in multimodal large language models, and CausalAct, a causal reasoning framework for robust video understanding.">
+  <meta name="keywords" content="action denial, multimodal large language models, video understanding, UCF101-AD, CausalAct, causal reasoning">
+  <meta property="og:title" content="Learning to Deny: Action Denial in Multimodal Large Language Models">
+  <meta property="og:description" content="Can video MLLMs recognize when a plausible action is not actually happening? Explore UCF101-AD and CausalAct.">
+  <meta property="og:url" content="https://raiyaan.xyz/Learn-to-Deny-webpage/">
+  <meta property="og:image" content="https://raiyaan.xyz/Learn-to-Deny-webpage/static/images/standard_vs_ucf101.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Learning to Deny">
+  <meta name="twitter:description" content="Action denial in multimodal large language models.">
+  <meta name="twitter:image" content="https://raiyaan.xyz/Learn-to-Deny-webpage/static/images/standard_vs_ucf101.png">
 
-
-  <title>Learning to Deny: Action Denial in Multimodal Large Language Models</title>
-  <link rel="icon" type="image/x-icon" href="">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
-
+  <title>Learning to Deny | Action Denial in MLLMs</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
+  <script defer src="static/js/index.js"></script>
 </head>
 <body>
-
-
-  <section class="hero">
+  <header class="hero paper-hero">
     <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Learning to Deny: Action Denial in Multimodal Large Language Models</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block"><a href="https://raiyaan.xyz/" target="_blank">Raiyaan Abdullah</a>,</span>
-              <span class="author-block">Shehreen Azad,</span>
-              <span class="author-block"><a href="https://www.crcv.ucf.edu/person/rawat/" target="_blank">Yogesh Singh Rawat</a>,</span>
+      <div class="container is-max-desktop has-text-centered">
+        <p class="eyebrow">ECCV 2026</p>
+        <h1 class="title publication-title">Learning to Deny</h1>
+        <p class="subtitle publication-subtitle">Action Denial in Multimodal Large Language Models</p>
+
+        <div class="publication-authors" aria-label="Authors">
+          <a href="https://raiyaan.xyz/" target="_blank" rel="noopener noreferrer">Raiyaan Abdullah</a>
+          <span aria-hidden="true">·</span>
+          <span>Shehreen Azad</span>
+          <span aria-hidden="true">·</span>
+          <a href="https://www.crcv.ucf.edu/person/rawat/" target="_blank" rel="noopener noreferrer">Yogesh Singh Rawat</a>
+        </div>
+        <p class="affiliation">Institute of Artificial Intelligence, University of Central Florida</p>
+
+        <div class="publication-links" aria-label="Project resources">
+          <a href="https://arxiv.org/abs/2606.31187" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.shields.io/badge/arXiv-2606.31187-b31b1b.svg" alt="Paper on arXiv: 2606.31187">
+          </a>
+          <a href="https://huggingface.co/datasets/raiyaanabdullah/UCF101-AD" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-UCF101--AD-yellow" alt="UCF101-AD dataset on Hugging Face">
+          </a>
+          <a href="https://raiyaan.xyz/Learn-to-Deny-webpage/" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.shields.io/badge/Project-Page-blue" alt="Project page">
+          </a>
+        </div>
+
+        <div class="hero-thesis">
+          <span>Context suggests.</span>
+          <span class="hero-arrow" aria-hidden="true">→</span>
+          <span>Motion decides.</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section quiz-section" id="challenge">
+      <div class="container is-widescreen">
+        <div class="section-heading has-text-centered">
+          <p class="eyebrow">Try it yourself</p>
+          <h2 class="title is-2">Can you deny the obvious answer?</h2>
+          <p class="section-lead">One clip. Eleven choices. Look past the setting and verify the motion.</p>
+        </div>
+
+        <div class="quiz-card">
+          <div class="quiz-media">
+            <div class="video-frame">
+              <img src="static/images/v_NotApplyEyeMakeup_g02_c01.gif" alt="A short action-denial video near an eye-makeup setting">
+              <span class="video-label">UCF101-AD sample</span>
             </div>
+          </div>
 
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">Institute of Artifical Intelligence, University of Central Florida<br>ECCV '26</span>
-            </div>
-
-            <div class="column has-text-centered">
-              <div class="publication-links">
-                <!-- Arxiv PDF link -->
-                <span class="link-block">
-                  <a href="" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                    </span>
-                    <span>Paper (Coming Soon)</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a href="" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fas fa-presentation-screen"></i>
-                    </span>
-                    <span>Poster (Coming Soon)</span>
-                  </a>
-                </span>
-
-                <!-- Github link -->
-                <span class="link-block">
-                  <a href="" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code (Coming Soon)</span>
-                  </a>
-                </span>
-
-                <!-- Hugging Face link -->
-                <span class="link-block">
-                  <a href="https://huggingface.co/datasets/raiyaanabdullah/UCF101-AD" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span>🤗 Dataset</span>
-                  </a>
-                </span>
+          <div class="quiz-content">
+            <div id="quiz-question">
+              <p class="quiz-kicker">What is actually happening?</p>
+              <h3>In the video, a person is performing an action. Select the caption that most accurately describes it.</h3>
+              <div class="quiz-options" role="group" aria-label="Video caption choices">
+                <button class="quiz-option" type="button" data-correct="true"><span>01</span>None of the choices accurately describes this video.</button>
+                <button class="quiz-option" type="button"><span>02</span>A person or group of people is applying makeup to their eyes.</button>
+                <button class="quiz-option" type="button"><span>03</span>A person or group of people is doing body weight squats.</button>
+                <button class="quiz-option" type="button"><span>04</span>A person or group of people is rafting on white water.</button>
+                <button class="quiz-option" type="button"><span>05</span>A person or group of people is blow drying their hair.</button>
+                <button class="quiz-option" type="button"><span>06</span>A person or group of people is swinging on a playground swing.</button>
+                <button class="quiz-option" type="button"><span>07</span>A person or group of people is playing drums.</button>
+                <button class="quiz-option" type="button"><span>08</span>A person or group of people is performing on a pommel horse.</button>
+                <button class="quiz-option" type="button"><span>09</span>A person or group of people is riding a jet ski and moving forward.</button>
+                <button class="quiz-option" type="button"><span>10</span>A person or group of people is spiking a volleyball, causing it to hit the ground.</button>
+                <button class="quiz-option" type="button"><span>11</span>A person or group of people is performing a high jump over a bar.</button>
               </div>
             </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-
-<!-- Teaser video
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <source src="static/videos/punching bag teaser animation optimized.mp4"
-        type="video/mp4">
-      </video>
-    </div>
-  </div>
-</section>
-End teaser video -->
-
-<!-- Dataset overview image
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body" style="text-align: center;">
-      <h2 class="title has-text-centered">Dataset Overview</Obj></h2>
-      <div style="text-align: center;">
-        <img src="static/images/figure_all_action_v2.jpg" alt="Dataset overview" style="max-width: 100%; height: auto;" />
-      </div>
-      <div class="columns is-vcentered is-multiline">
-        <div class="column is-one-third">
-          <div style="text-align: center;">
-            <img src="static/images/synta_v3.gif" alt="" style="max-width: 100%; height: auto;" />
-          </div>
-        </div>
-        <div class="column is-one-third">
-          <div style="text-align: center;">
-            <img src="static/images/K400.gif" alt="" style="max-width: 100%; height: auto;" />
-          </div>
-        </div>
-        <div class="column is-one-third">
-          <div style="text-align: center;">
-            <img src="static/images/SSv2.gif" alt="" style="max-width: 100%; height: auto;" />
+            <div class="quiz-result" id="quiz-result" role="status" aria-live="polite" hidden>
+              <span class="result-icon" aria-hidden="true"></span>
+              <p class="result-label"></p>
+              <h3 class="result-message"></h3>
+              <p class="result-explanation">The familiar face, tool, and setting invite an “Apply Eye Makeup” prediction—but the defining action never occurs. That gap between plausible context and verified motion is action denial.</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-End Dataset overview image -->
+    </section>
 
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Multimodal large language models (MLLMs) have rapidly advanced video understanding, achieving strong zero-shot and few-shot recognition across standard benchmarks. Yet their ability to <b>deny</b> an action by recognizing when an activity is <b>not</b> happening despite strong contextual cues remains largely unexplored. We introduce <b>UCF101-AD</b>, a large-scale benchmark consisting of paired <i>Action-Presence</i> and <i>Action-Denial</i> clips, designed to evaluate this capacity for denial. Each negative video in UCF101-AD preserves the same contextual and motion cues (persons, objects, locations) as its positive counterpart, but the defining action itself is explicitly absent. Evaluating 20 state-of-the-art MLLMs reveals a consistent failure: models that exceed 85% accuracy on the positive action classes collapse below 50% on its action-denial counterpart, indicating a strong inclination to affirm plausible actions rather than verify that they truly occur. This exposes a critical blind spot in modern video understanding: the inability to reason causally about whether a motion actually happens. To probe this issue, we explore a causal graph formulation, <b>CausalAct</b>, which expresses scene structure through natural-language prompts linking context, interaction, and motion. Incorporating such causal cues substantially reduces false positives, demonstrating that denial is a learnable reasoning skill. UCF101-AD provides a new lens for diagnosing and improving causal reasoning in multimodal models, and will be released publicly to encourage further research on robust action understanding.
-          </p>
+    <section class="section paper-section" id="evaluation-setups">
+      <div class="container is-max-widescreen">
+        <div class="two-column-copy">
+          <div>
+            <p class="eyebrow">A benchmark built to expose shortcuts</p>
+            <h2 class="title is-2">Four views of the same denial problem</h2>
+          </div>
+          <div class="copy-block">
+            <p>UCF101-AD tests denial under progressively different formulations. The <strong>Standard MCQ</strong> pairs “None” with the tempting target action and unrelated distractors. <strong>Explicit Denial</strong> spells out that contextual cues can be present while the action is absent. <strong>Primary Distractor Removed</strong> takes away the most seductive wrong answer, while the <strong>Binary</strong> setup asks a direct yes-or-no question.</p>
+            <p>Together, these variants separate action recognition from a model’s tendency to affirm a plausible premise. The bold response is correct; the underlined response is the primary contextual distractor.</p>
+          </div>
+        </div>
+        <figure class="paper-figure figure-wide">
+          <img src="static/images/examples_setups.png" alt="Evaluation variants for a Not Playing Piano action-denial example">
+          <figcaption><strong>Evaluation and analytical variants.</strong> The task becomes easier as the prompt or candidate set removes ambiguity—but real-world systems cannot depend on those hints.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section abstract-section" id="abstract">
+      <div class="container is-max-desktop">
+        <p class="eyebrow has-text-centered">Abstract</p>
+        <h2 class="title is-2 has-text-centered">Recognizing an action is not the same as verifying it</h2>
+        <div class="abstract-copy">
+          <p>Multimodal large language models (MLLMs) have rapidly advanced video understanding, achieving strong zero-shot and few-shot recognition across standard benchmarks. Yet their ability to <strong>deny</strong> an action by recognizing when an activity is <strong>not</strong> happening despite strong contextual cues remains largely unexplored. We introduce <strong>UCF101-AD</strong>, a large-scale benchmark consisting of paired <em>Action-Presence</em> and <em>Action-Denial</em> clips, designed to evaluate this capacity for denial. Each negative video in UCF101-AD preserves the same contextual and motion cues (persons, objects, locations) as its positive counterpart, but the defining action itself is explicitly absent.</p>
+          <p>Evaluating 20 state-of-the-art MLLMs reveals a consistent failure: models that exceed 85% accuracy on the positive action classes collapse below 50% on its action-denial counterpart, indicating a strong inclination to affirm plausible actions rather than verify that they truly occur. This exposes a critical blind spot in modern video understanding: the inability to reason causally about whether a motion actually happens. To probe this issue, we explore a causal graph formulation, <strong>CausalAct</strong>, which expresses scene structure through natural-language prompts linking context, interaction, and motion. Incorporating such causal cues substantially reduces false positives, demonstrating that denial is a learnable reasoning skill. UCF101-AD provides a new lens for diagnosing and improving causal reasoning in multimodal models.</p>
+        </div>
+        <div class="stat-strip" aria-label="Dataset and evaluation highlights">
+          <div><strong>11,283</strong><span>videos</span></div>
+          <div><strong>101</strong><span>action pairs</span></div>
+          <div><strong>20</strong><span>MLLMs evaluated</span></div>
+          <div><strong>86.6%</strong><span>human denial accuracy</span></div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
+    </section>
 
-
-<!-- Dataset Details Table
-<section class="hero is-small">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <h2 class="title is-3 has-text-centered">Dataset Details</h2>
-      <div class="content">
-        <table class="table is-bordered is-striped is-narrow is-hoverable">
-          <thead>
-            <tr>
-              <th>Dataset</th>
-              <th>Syn-TA</th>
-              <th>K400-TA</th>
-              <th>SSv2-TA</th>
-            </tr>
-            <tr>
-              <th></th>
-              <th>Set 1/Set 2</th>
-              <th>Set 1/Set 2</th>
-              <th>Set 1/Set 2</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong># Coarse classes</strong></td>
-              <td>20</td>
-              <td>41</td>
-              <td>26</td>
-            </tr>
-            <tr>
-              <td><strong># Fine classes</strong></td>
-              <td>53/47</td>
-              <td>111/94</td>
-              <td>81/68</td>
-            </tr>
-            <tr>
-              <td><strong># Train videos</strong></td>
-              <td>3180/2820</td>
-              <td>73312/56291</td>
-              <td>78229/63611</td>
-            </tr>
-            <tr>
-              <td><strong># Test videos</strong></td>
-              <td>2120/1880</td>
-              <td>5616/4664</td>
-              <td>11134/9241</td>
-            </tr>
-            <tr>
-              <td><strong># Total videos</strong></td>
-              <td>10000</td>
-              <td>139883</td>
-              <td>162215</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
-End Dataset Details Table -->
-
-<!-- model performance image
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Model Performance</h2>
-    <div class="hero-body" style="text-align: center;">
-      <img src="static/images/scores.png" alt=""/>
-    </div>
-  </div>
-</section>
-End model performance image -->
-
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>
-        @InProceedings{Abdullah_2026_ECCV,
-          author="Abdullah, Raiyaan
-          and Azad, Shehreen
-          and Rawat, Yogesh Singh",
-          title="Learning to Deny: Action Denial in Multimodal Large Language Models",
-          booktitle="Computer Vision -- ECCV 2026",
-          publisher="Springer Nature Switzerland",
-          address="Cham",
-          pages=""
-        }    
-      </code></pre>
-    </div>
-</section>
-<!--End BibTex citation -->
-
-
-<footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
+    <section class="section paper-section" id="recognition-gap">
+      <div class="container is-max-widescreen">
+        <div class="figure-story figure-story--radar">
+          <figure class="paper-figure">
+            <img src="static/images/standard_vs_ucf101.png" alt="Radar chart comparing model accuracy on UCF101 and UCF101-AD">
+          </figure>
+          <div class="story-copy">
+            <p class="eyebrow">The recognition–denial gap</p>
+            <h2 class="title is-2">Strong on UCF101. Brittle on UCF101-AD.</h2>
+            <p>On the original UCF101 test set, models usually exceed 85% accuracy because the labeled action and its defining motion are present. The green shape is broad and consistent.</p>
+            <p>On UCF101-AD, the scene still looks right—the people, objects, locations, and nearby motions remain—but the target action is absent. The red shape collapses. Even the strongest model reaches only <strong>51.5% Overall-AD</strong>, while most fall between 20% and 35%.</p>
+            <div class="callout"><strong>The missing skill is verification:</strong> a model must check for the defining motion instead of completing the scene from context.</div>
+          </div>
         </div>
       </div>
+    </section>
+
+    <section class="section results-section" id="results">
+      <div class="container is-max-widescreen">
+        <div class="section-heading has-text-centered">
+          <p class="eyebrow">Benchmark results</p>
+          <h2 class="title is-2">Twenty MLLMs, one consistent failure</h2>
+          <p class="section-lead">Zero-shot accuracy (%) on UCF101-AD. Type 1 contains context without defining motion; Type 2 contains similar context with a different plausible motion.</p>
+        </div>
+
+        <div class="table-container results-table-wrap" tabindex="0" aria-label="Scrollable benchmark results table">
+          <table class="table results-table is-fullwidth">
+            <thead>
+              <tr>
+                <th rowspan="2">Model</th>
+                <th colspan="3">Action-Denial</th>
+                <th rowspan="2">Action-<br>Presence ↑</th>
+                <th rowspan="2">Overall ↑</th>
+                <th rowspan="2">HM ↑</th>
+              </tr>
+              <tr>
+                <th>Type 1 ↑</th>
+                <th>Type 2 ↑</th>
+                <th>Overall-AD ↑</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Ovis2.5-9B</td><td>34.5</td><td>33.8</td><td>34.1</td><td class="second-best">97.5</td><td>43.7</td><td>50.5</td></tr>
+              <tr><td>Ovis2-8B</td><td>25.6</td><td>27.1</td><td>26.4</td><td>95.6</td><td>36.9</td><td>41.4</td></tr>
+              <tr><td>InternVideo2.5_Chat-8B</td><td>19.1</td><td>17.7</td><td>18.4</td><td>96.6</td><td>30.3</td><td>30.9</td></tr>
+              <tr><td>InternVL2.5-8B</td><td>30.5</td><td>32.5</td><td>31.6</td><td>93.5</td><td>41.0</td><td>47.2</td></tr>
+              <tr><td>Qwen2.5-VL-7B-Instruct</td><td>22.0</td><td>27.9</td><td>25.1</td><td>95.4</td><td>35.8</td><td>39.7</td></tr>
+              <tr class="best-row"><td>VideoLLaMA3-7B</td><td><strong>49.4</strong></td><td><strong>53.4</strong></td><td><strong>51.5</strong></td><td>96.0</td><td><strong>58.3</strong></td><td><strong>67.0</strong></td></tr>
+              <tr><td>VideoChat-Flash-Qwen2-7B</td><td>27.4</td><td>31.1</td><td>29.4</td><td>94.4</td><td>39.3</td><td>44.8</td></tr>
+              <tr><td>Oryx-7B</td><td>20.6</td><td>23.5</td><td>22.1</td><td>85.6</td><td>31.7</td><td>35.1</td></tr>
+              <tr><td>Valley-Eagle-7B</td><td>8.8</td><td>13.1</td><td>11.1</td><td>96.4</td><td>24.0</td><td>19.9</td></tr>
+              <tr><td>LLaVA-Video-7B-Qwen2</td><td>28.9</td><td>30.7</td><td>29.9</td><td>96.4</td><td>40.0</td><td>45.6</td></tr>
+              <tr><td>Kimi-VL-A3B-Instruct</td><td>27.4</td><td>31.4</td><td>29.6</td><td>94.7</td><td>39.5</td><td>45.1</td></tr>
+              <tr><td>Ovis2.5-2B</td><td>23.1</td><td>30.4</td><td>27.0</td><td>91.1</td><td>36.7</td><td>41.7</td></tr>
+              <tr><td>Qwen2.5-VL-3B-Instruct</td><td>17.2</td><td>22.1</td><td>19.8</td><td>92.3</td><td>30.8</td><td>32.6</td></tr>
+              <tr><td>VideoLLaMA3-2B</td><td>20.2</td><td>30.0</td><td>25.4</td><td>93.6</td><td>35.8</td><td>40.0</td></tr>
+              <tr class="runner-row"><td>Qwen2.5-VL-72B-Instruct</td><td class="second-best">42.6</td><td class="second-best">47.8</td><td class="second-best">45.7</td><td><strong>97.6</strong></td><td class="second-best">53.6</td><td class="second-best">62.3</td></tr>
+              <tr><td>GPT4o-mini</td><td>20.7</td><td>22.3</td><td>21.5</td><td>90.1</td><td>31.9</td><td>34.7</td></tr>
+              <tr class="group-row"><th colspan="7">Reasoning Models</th></tr>
+              <tr><td>Ovis2.5-9B (thinking)</td><td>36.7</td><td>43.8</td><td>40.4</td><td>96.7</td><td>48.9</td><td>57.0</td></tr>
+              <tr><td>Video-R1-7B</td><td>12.7</td><td>16.3</td><td>14.6</td><td>96.0</td><td>27.0</td><td>25.3</td></tr>
+              <tr><td>Kimi-VL-A3B-Thinking</td><td>14.9</td><td>26.1</td><td>20.9</td><td>96.7</td><td>32.4</td><td>34.4</td></tr>
+              <tr><td>ARC-Hunyuan-Video-7B</td><td>12.9</td><td>16.3</td><td>14.7</td><td>58.5</td><td>21.3</td><td>23.5</td></tr>
+              <tr><td>Lumian-VLR-7B-Thinking</td><td>9.8</td><td>10.7</td><td>10.3</td><td>55.3</td><td>17.1</td><td>17.4</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note"><strong>Overall</strong> averages all Action-Denial and Action-Presence samples. <strong>HM</strong> is the harmonic mean of Overall-AD and Action-Presence, rewarding models that balance recognition with denial. Bold and underlined values mark the best and second-best results.</p>
+      </div>
+    </section>
+
+    <section class="section paper-section" id="progressive-hinting">
+      <div class="container is-max-widescreen">
+        <div class="section-heading has-text-centered">
+          <p class="eyebrow">Why do models fail?</p>
+          <h2 class="title is-2">Remove the temptation, and denial gets easier</h2>
+          <p class="section-lead">Accuracy rises from the Standard MCQ to Explicit Denial, then rises again when the primary action distractor disappears.</p>
+        </div>
+        <figure class="paper-figure heatmap-figure">
+          <img src="static/images/eval_heatmap.png" alt="Heatmap of model accuracy under standard MCQ, explicit denial, and no-distractor setups">
+          <figcaption><strong>Progressive reduction of contextual confusion.</strong> Explicit wording nudges models to verify, while removing the primary distractor often brings performance close to positive-action recognition. The capability exists, but realistic ambiguity keeps it hidden.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section causal-section" id="causalact">
+      <div class="container is-max-widescreen">
+        <div class="figure-story causal-intro">
+          <figure class="paper-figure graph-figure">
+            <img src="static/images/polsima.png" alt="CausalAct directed graph from persons, objects, and location through interaction and motion to action">
+          </figure>
+          <div class="story-copy">
+            <p class="eyebrow">From correlation to causality</p>
+            <h2 class="title is-2">CausalAct checks the chain before naming the action</h2>
+            <p>CausalAct represents a video as a directed acyclic graph. <strong>Persons, objects, and location</strong> provide context; <strong>spatial relations and interactions</strong> describe how entities are arranged and engaged; <strong>motion</strong> captures the dynamic evidence; and only then does the graph reach an <strong>action</strong>.</p>
+            <p>The key constraint is simple: context alone should not imply an action. Object-centric actions require both the right interaction and motion; person-centric actions still require the defining motion. If that causal chain breaks, the model should deny the action.</p>
+            <div class="causal-equation" aria-label="CausalAct relationships">
+              <span>P, O, L → S</span>
+              <span>P, O → I</span>
+              <span>I → M</span>
+              <span>I, M → A</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="method-overview">
+          <div class="two-column-copy">
+            <div>
+              <p class="eyebrow">Prompting + auxiliary fine-tuning</p>
+              <h2 class="title is-2">Teaching models how to use the graph</h2>
+            </div>
+            <div class="copy-block">
+              <p><strong>CausalAct-0</strong> translates the graph into a structured natural-language prompt: define the components, state their dependencies, show positive and negative examples, then ask the model to infer the evidence internally before choosing a caption.</p>
+              <p>For smaller models that struggle to follow this structure, <strong>CausalAct</strong> adds auxiliary fine-tuning on graph questions about topology, node relationships, causal paths, and property consistency. These tasks never reveal the negative action label, preventing label leakage. They teach the reasoning structure—not the benchmark answers.</p>
+            </div>
+          </div>
+          <figure class="paper-figure figure-wide">
+            <img src="static/images/overview.png" alt="Overview of CausalAct prompting and graph-based auxiliary fine-tuning">
+            <figcaption><strong>CausalAct overview.</strong> Top: a graph-structured prompt guides zero-shot inference. Bottom: auxiliary VQA tasks teach smaller models to internalize causal dependencies without exposing target action labels.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section performance-section" id="causalact-results">
+      <div class="container is-max-widescreen">
+        <div class="two-column-copy performance-heading">
+          <div>
+            <p class="eyebrow">Causal reasoning helps</p>
+            <h2 class="title is-2">Prompting reveals the path. Fine-tuning teaches models to follow it.</h2>
+          </div>
+          <div class="copy-block">
+            <p>For larger models, zero-shot <strong>CausalAct-0</strong> improves Ovis2.5-9B and Qwen2.5-VL-7B, whose language backbones can use the structured prompt. VideoLLaMA3-7B degrades slightly, showing that prompting alone is not universally sufficient.</p>
+            <p>For 2B–3B models, auxiliary graph fine-tuning produces the decisive gains: Ovis2.5-2B rises from 27.0% to 52.3%, Qwen2.5-VL-3B from 19.8% to 40.7%, and VideoLLaMA3-2B from 25.4% to 43.3% Overall-AD. The model learns to verify the causal chain before asserting an action.</p>
+          </div>
+        </div>
+        <figure class="paper-figure figure-wide performance-figure">
+          <img src="static/images/model_performance_chart_horizontal.png" alt="Bar charts comparing baseline, CausalAct-0, and CausalAct accuracy">
+          <figcaption><strong>Baseline vs. CausalAct-0 vs. CausalAct.</strong> Structured prompting helps capable reasoners; graph-based auxiliary fine-tuning makes the causal representation usable by smaller MLLMs.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section bibtex-section" id="bibtex">
+      <div class="container is-max-desktop">
+        <div class="bibtex-header">
+          <div>
+            <p class="eyebrow">Citation</p>
+            <h2 class="title is-2">BibTeX</h2>
+          </div>
+          <button class="copy-button" id="copy-bibtex" type="button" aria-label="Copy BibTeX citation">Copy citation</button>
+        </div>
+        <pre class="bibtex-code"><code id="bibtex-code">
+@InProceedings{Abdullah_2026_ECCV,
+    author    = {Abdullah, Raiyaan and Azad, Shehreen and Rawat, Yogesh Singh},
+    title     = {Learning to Deny: Action Denial in Multimodal Large Language Models},
+    booktitle = {Computer Vision -- ECCV 2026},
+    publisher = {Springer Nature Switzerland},
+    address   = {Cham},
+    pages     = {}
+}
+        </code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer project-footer">
+    <div class="container is-max-desktop has-text-centered">
+      <p><strong>Learning to Deny</strong> · UCF101-AD · CausalAct</p>
+      <p class="footer-note">Built from the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener noreferrer">Academic Project Page Template</a>.</p>
     </div>
-  </div>
-</footer>
-
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+  </footer>
+</body>
+</html>
