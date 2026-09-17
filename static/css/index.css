@@ -130,6 +130,20 @@ a {
   max-width: 900px;
 }
 
+.spotlight-badge {
+  background: var(--yellow);
+  border: 1px solid rgba(20, 33, 61, 0.12);
+  border-radius: 999px;
+  color: var(--ink);
+  display: inline-block;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin: 0 auto 1rem;
+  padding: 0.45rem 0.9rem;
+}
+
 .publication-authors {
   align-items: center;
   display: flex;
